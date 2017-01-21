@@ -30,7 +30,7 @@ target_x = x;
 target_y = y;
 moving = false;
 direction = irandom(3);
-alarm[0]=50+random(150)
+alarm[0]=20 //+ 50*irandom(5);
 influenceTimer = 0;
 willMove = true;
 </string>
@@ -55,15 +55,16 @@ willMove = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction =  irandom(3) //only move up down left or right
+            <string>direction = irandom(3) //only move up down left or right
 
-if (irandom(10) &gt; 3) {
+if (irandom(9) &gt; 5) {
     willMove = true 
 } else {
     willMove = false
 }
 
-alarm[0]=50+random(150)
+
+alarm[0]=20 + 20*irandom(5);
 </string>
           </argument>
         </arguments>
@@ -86,23 +87,24 @@ alarm[0]=50+random(150)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if collision_circle(x, y, 100, O_QueenBase, false, true) and O_QueenBase.isAttracting and influenceTimer &lt; 10 
+            <string>if (influenceTimer &gt;= 5){
+    sprite_index = S_LightPinkBlock;
+    score++;
+    instance_destroy();
+} 
+
+if (collision_circle(x, y, 100, O_QueenBase, false, true) and O_QueenBase.isAttracting and influenceTimer &lt; 5) 
 {
    influenceTimer += 1;
+   moving = false;
    exit;
 } 
 else 
 {
-    speed=3+random(2);
     influenceTimer = 0;
     prite_index = S_GreyBlock;
 }
 
-if (influenceTimer &gt;= 10){
-    sprite_index = S_LightPinkBlock;
-    score++;
-    instance_destroy();
-}
 //Move the player
 if ( target_x &gt; x ) { x += 4 } //right
 if ( target_x &lt; x ) { x -= 4 } //left
@@ -117,16 +119,19 @@ if ( target_x == x &amp;&amp; target_y == y ) {
 
 if (willMove){
 
-    if (direction = 0) {
+    if ((direction = 0)  &amp;&amp; !moving){
         moving = true;
         target_x += 32;
-    } else if (direction = 1) {
+    } 
+    if ((direction = 1)  &amp;&amp; !moving) {
         moving = true;
         target_y += 32;
-    } else if (direction = 2) {
+    }
+    if ((direction = 2)  &amp;&amp; !moving){
         moving = true;
         target_x -= 32;
-    } else if (direction = 3) {
+    } 
+    if ((direction = 3)  &amp;&amp; !moving) {
         moving = true;
         target_y -= 32;
     }
