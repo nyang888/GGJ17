@@ -31,7 +31,7 @@ randomize();
 spawn_range=50;
 spawn_timer_max=20;
 spawn_timer=irandom_range(0,20);
-// used to tell the Person which direction to move
+
 
 </string>
           </argument>
@@ -60,20 +60,24 @@ spawn_timer=irandom_range(0,20);
 //When spawn_timer=0, create zombie and give him this objecs xSpeed
 if(spawn_timer==0)
 {
-    
-    var Person=instance_create(x,y,O_PersonBase);
-    Person.speed=3+random(2);
-    Person.direction = irandom(3) * 90  //only move up down left or right
-    Person.alarm[0]=50+random(150)
     do
     {
     x=random_range(-32,room_width+32)
     y=random_range(-32,room_height+32)
     }
     until((x&lt;0 or x&gt;room_width) and (y&lt;0 or y&gt;room_height))
+    
+    var Person=instance_create(x,y,O_PersonBase);
     Person.x = x;
     Person.y = y;
     spawn_timer=5;
+    Person.target_x = Person.x
+    Person.target_y = Person.y
+    Person.moving = false;
+    Person.direction = irandom(3); //only move up down left or right
+    Person.alarm[0]= 20
+    Person.influenceTimer = 0;
+    Person.willMove = true;
 }
 </string>
           </argument>

@@ -198,8 +198,11 @@ var BLY=view_yview+20;
 
 var length_max=440;
 var width=10;
-var length=(O_QueenBase.overheat)/(O_QueenBase.overheat_max)*length_max;
+var length=(O_QueenBase.overheat)/(O_QueenBase.overheat_max)*length_max - 20;
 
+if (length &lt; 0) {
+    length = 0
+}
 
 draw_set_color(c_black)
 draw_rectangle(BLX-2,BLY-2,BLX+length_max+2,BLY+width+2,false);
