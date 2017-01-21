@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speedMultiplier=random(3);
+            <string>speedMultiplier=random(2);
 target_x = x;
 target_y = y;
 moving = false;
@@ -106,10 +106,10 @@ else
 }
 
 //Move the player
-if ( target_x &gt; x ) { x += 4 } //right
-if ( target_x &lt; x ) { x -= 4 } //left
-if ( target_y &gt; y ) { y += 4 } //down
-if ( target_y &lt; y ) { y -= 4 } //up
+if ( target_x &gt; x ) { x += 2 } //right
+if ( target_x &lt; x ) { x -= 2 } //left
+if ( target_y &gt; y ) { y += 2 } //down
+if ( target_y &lt; y ) { y -= 2 } //up
 
 //Check for destination
 if ( target_x == x &amp;&amp; target_y == y ) {
