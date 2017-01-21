@@ -13,7 +13,9 @@
   <objects name="objects">
     <object>objects\O_QueenBase</object>
   </objects>
-  <rooms name="rooms"/>
+  <rooms name="rooms">
+    <room>rooms\room1</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
