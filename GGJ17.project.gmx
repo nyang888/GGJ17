@@ -29,6 +29,7 @@
     <object>objects\O_PersonBase</object>
     <object>objects\O_WallBase</object>
     <object>objects\O_SpawnerPerson</object>
+    <object>objects\O_HandBase</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

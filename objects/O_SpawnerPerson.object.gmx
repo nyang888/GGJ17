@@ -63,7 +63,7 @@ if(spawn_timer==0)
     
     var Person=instance_create(x,y,O_PersonBase);
     Person.speed=3+random(2);
-    Person.direction=round(random(4))*90;
+    Person.direction = irandom(3) * 90  //only move up down left or right
     Person.alarm[0]=50+random(150)
     do
     {

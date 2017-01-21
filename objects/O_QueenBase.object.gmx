@@ -115,24 +115,26 @@ if ( keyboard_check(vk_down) &amp;&amp; !moving ) {
     //sprite_index = spr_Player_Down;
 }
     
+
+//Waving
+if(keyboard_check(vk_space) and overheat &lt; overheat_max and overheated_flag = false)
+{       
+    isAttracting = true;
+    overheat += overheat_increment;
+} else {
     
-    //Waving
-    if(keyboard_check(vk_space) and overheat &lt; overheat_max and overheated_flag = false)
-    {       
-        isAttracting = true;
-        overheat += overheat_increment;
-    
-    } else {
-        
-        if(overheated_flag = true and overheat &lt;= overheat_min){
-            overheated_flag = false
-        } 
-        if(overheat &gt; overheat_max){
-            overheated_flag = true;
-        }
-        isAttracting = false;
-        overheat -= overheat_decrement;
+    if(overheated_flag = true and overheat &lt;= overheat_min){
+        overheated_flag = false
+    } 
+    if(overheat &gt; overheat_max){
+        overheated_flag = true;
     }
+    isAttracting = false;
+    overheat -= overheat_decrement;
+}
+
+
+
 
 </string>
           </argument>
