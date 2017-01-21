@@ -5,9 +5,15 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\S_PinkBlock</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\O_QueenBase</object>
+  </objects>
+  <rooms name="rooms"/>
   <help>
     <rtf>help.rtf</rtf>
   </help>
