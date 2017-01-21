@@ -14,6 +14,11 @@
     <sprite>sprites\S_Queen_Right</sprite>
     <sprite>sprites\S_Queen_Up</sprite>
     <sprite>sprites\S_Queen_Left</sprite>
+    <sprite>sprites\S_Person</sprite>
+    <sprite>sprites\S_Person_Up</sprite>
+    <sprite>sprites\S_Person_Down</sprite>
+    <sprite>sprites\S_Person_Left</sprite>
+    <sprite>sprites\S_Person_Right</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\Grass</background>
