@@ -89,28 +89,28 @@ if ( target_x == x &amp;&amp; target_y == y ) {
 if ( keyboard_check(vk_left) &amp;&amp; !moving ) {
     moving = true;
     target_x -= 32;
-    image_index = S_Queen_Left;
+    sprite_index = S_Queen_Left;
     image_speed = 0.3;
     //sprite_index = spr_Player_Left;
 }
 if ( keyboard_check(vk_right) &amp;&amp; !moving ) {
     moving = true;
     target_x += 32;
-    image_index = S_Queen_Right;
+    sprite_index = S_Queen_Right;
     image_speed = 0.3;
     //sprite_index = spr_Player_Right;
 }
 if ( keyboard_check(vk_up) &amp;&amp; !moving ) {
     moving = true;
     target_y -= 32;
-    image_index = S_Queen_Up;
+    sprite_index = S_Queen_Up;
     image_speed = 0.3;
     //sprite_index = spr_Player_Up;
 }
 if ( keyboard_check(vk_down) &amp;&amp; !moving ) {
     moving = true;
     target_y += 32;
-    image_index = S_Queen_Down;
+    sprite_index = S_Queen_Down;
     image_speed = 0.3;
     //sprite_index = spr_Player_Down;
 }
