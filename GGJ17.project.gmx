@@ -9,6 +9,7 @@
     <sprite>sprites\S_PinkBlock</sprite>
     <sprite>sprites\S_GreyBlock</sprite>
     <sprite>sprites\S_BlackBlock</sprite>
+    <sprite>sprites\S_LightPinkBlock</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

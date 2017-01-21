@@ -26,6 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>/// CODE RUN AT CREATION
+isAttracting = false;
+
+//Variable for overheating
+overheat = 1;
+overheat_min = 0;
+overheat_max = 10;
+overheat_increment = .5;
+overheat_decrement = .15;
+overheated_flag = false;
 
 image_speed=.25;
 xSpeed=0;
@@ -55,50 +64,50 @@ ms=3;
             <kind>1</kind>
             <string>///CONTROLS
 
+
     //moving left and right
     if(keyboard_check(vk_left))
     {
         //facing=left;
         xSpeed=-ms;
         //sprite_index=S_DogRun_L;
-    }
-    if(keyboard_check_released(vk_left))
-    {
-           xSpeed=0;
-           //sprite_index=S_DogStand_L;
-    }
-    if(keyboard_check(vk_right))
+    } else if(keyboard_check(vk_right))
     {
         //facing=right;
         xSpeed=ms;
         //sprite_index=S_DogRun_R;
         
-    }
-    if(keyboard_check_released(vk_right))
-    {
-        xSpeed=0;
-        //sprite_index=S_DogStand_R;
-    }
-    
-    //moving up and down 
-        if(keyboard_check(vk_up))
+    } else  if(keyboard_check(vk_up))
     {
         //facing=right;
         ySpeed=-ms;
         //sprite_index=S_DogRun_R;
         
-    }
-    if(keyboard_check_released(vk_up))
-    {
-        ySpeed=0;
-        //sprite_index=S_DogStand_R;
-    }
-    if(keyboard_check(vk_down))
+    } else if(keyboard_check(vk_down))
     {
         //facing=left;
         ySpeed=ms;
         //sprite_index=S_DogRun_L;
     }
+    
+    if(keyboard_check_released(vk_left))
+    {
+           xSpeed=0;
+           //sprite_index=S_DogStand_L;
+    }
+    
+    if(keyboard_check_released(vk_right))
+    {
+        xSpeed=0;
+        //sprite_index=S_DogStand_R;
+    }
+   
+    if(keyboard_check_released(vk_up))
+    {
+        ySpeed=0;
+        //sprite_index=S_DogStand_R;
+    }
+    
     if(keyboard_check_released(vk_down))
     {
            ySpeed=0;
@@ -107,8 +116,95 @@ ms=3;
     
     x += xSpeed;
     y += ySpeed;
+    
+    
+    //Waving
+    if(keyboard_check(vk_space) and overheat &lt; overheat_max and overheated_flag = false)
+    {       
+        isAttracting = true;
+        overheat += overheat_increment;
+    
+    } else {
+        
+        if(overheated_flag = true and overheat &lt;= overheat_min){
+            overheated_flag = false
+        } 
+        if(overheat &gt; overheat_max){
+            overheated_flag = true;
+        }
+        isAttracting = false;
+        overheat -= overheat_decrement;
+    }
 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// OVERHEAT BAR
+
+draw_self();
+
+var BLX=view_xview+20;
+var BLY=view_yview+20;
+
+var length_max=100;
+var width=10;
+var length=(O_QueenBase.overheat-1)/(O_QueenBase.overheat_max-1)*length_max;
+
+
+draw_set_color(c_black)
+draw_rectangle(BLX-2,BLY-2,BLX+length_max+2,BLY+width+2,false);
+
+
+draw_set_color(make_colour_hsv(110-(O_QueenBase.overheat*10),255,255))
+draw_rectangle(BLX,BLY,BLX+length,BLY+width,false);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>703</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_score</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>100</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>100</string>
+          </argument>
+          <argument>
+            <kind>1</kind>
+            <string>Score: </string>
           </argument>
         </arguments>
       </action>
