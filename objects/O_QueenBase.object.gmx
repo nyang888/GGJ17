@@ -40,6 +40,13 @@ image_speed=.25;
 xSpeed=0;
 ySpeed=0;
 ms=3;
+
+///Initialize the player
+target_x = x;
+target_y = y;
+moving = false;
+
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -64,58 +71,45 @@ ms=3;
             <kind>1</kind>
             <string>///CONTROLS
 
+///Handle Player Movement
 
-    //moving left and right
-    if(keyboard_check(vk_left))
-    {
-        //facing=left;
-        xSpeed=-ms;
-        //sprite_index=S_DogRun_L;
-    } else if(keyboard_check(vk_right))
-    {
-        //facing=right;
-        xSpeed=ms;
-        //sprite_index=S_DogRun_R;
-        
-    } else  if(keyboard_check(vk_up))
-    {
-        //facing=right;
-        ySpeed=-ms;
-        //sprite_index=S_DogRun_R;
-        
-    } else if(keyboard_check(vk_down))
-    {
-        //facing=left;
-        ySpeed=ms;
-        //sprite_index=S_DogRun_L;
-    }
-    
-    if(keyboard_check_released(vk_left))
-    {
-           xSpeed=0;
-           //sprite_index=S_DogStand_L;
-    }
-    
-    if(keyboard_check_released(vk_right))
-    {
-        xSpeed=0;
-        //sprite_index=S_DogStand_R;
-    }
-   
-    if(keyboard_check_released(vk_up))
-    {
-        ySpeed=0;
-        //sprite_index=S_DogStand_R;
-    }
-    
-    if(keyboard_check_released(vk_down))
-    {
-           ySpeed=0;
-           //sprite_index=S_DogStand_L;
-    }
-    
-    x += xSpeed;
-    y += ySpeed;
+//Move the player
+if ( target_x &gt; x ) { x += 4 } //right
+if ( target_x &lt; x ) { x -= 4 } //left
+if ( target_y &gt; y ) { y += 4 } //down
+if ( target_y &lt; y ) { y -= 4 } //up
+
+//Check for destination
+if ( target_x == x &amp;&amp; target_y == y ) {
+    moving = false;
+    image_speed = 0;
+}
+
+//Handle input
+if ( keyboard_check(vk_left) &amp;&amp; !moving ) {
+    moving = true;
+    target_x -= 32;
+    image_speed = 0.3;
+    //sprite_index = spr_Player_Left;
+}
+if ( keyboard_check(vk_right) &amp;&amp; !moving ) {
+    moving = true;
+    target_x += 32;
+    image_speed = 0.3;
+    //sprite_index = spr_Player_Right;
+}
+if ( keyboard_check(vk_up) &amp;&amp; !moving ) {
+    moving = true;
+    target_y -= 32;
+    image_speed = 0.3;
+    //sprite_index = spr_Player_Up;
+}
+if ( keyboard_check(vk_down) &amp;&amp; !moving ) {
+    moving = true;
+    target_y += 32;
+    image_speed = 0.3;
+    //sprite_index = spr_Player_Down;
+}
     
     
     //Waving

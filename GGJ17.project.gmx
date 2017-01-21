@@ -11,7 +11,9 @@
     <sprite>sprites\S_BlackBlock</sprite>
     <sprite>sprites\S_LightPinkBlock</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\Grass</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\O_QueenBase</object>
