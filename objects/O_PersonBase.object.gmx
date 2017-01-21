@@ -25,10 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed=30;
-direction=round(random(4))*90;
+            <string>speedMultiplier=random(3);
+target_x = x;
+target_y = y;
+moving = false;
+direction = irandom(3);
 alarm[0]=50+random(150)
 influenceTimer = 0;
+willMove = true;
 </string>
           </argument>
         </arguments>
@@ -51,7 +55,14 @@ influenceTimer = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction=round(random(4))*90;
+            <string>direction =  irandom(3) //only move up down left or right
+
+if (irandom(10) &gt; 3) {
+    willMove = true 
+} else {
+    willMove = false
+}
+
 alarm[0]=50+random(150)
 </string>
           </argument>
@@ -77,8 +88,8 @@ alarm[0]=50+random(150)
             <kind>1</kind>
             <string>if collision_circle(x, y, 100, O_QueenBase, false, true) and O_QueenBase.isAttracting and influenceTimer &lt; 10 
 {
-   speed = 0
    influenceTimer += 1;
+   exit;
 } 
 else 
 {
@@ -92,15 +103,34 @@ if (influenceTimer &gt;= 10){
     score++;
     instance_destroy();
 }
+//Move the player
+if ( target_x &gt; x ) { x += 4 } //right
+if ( target_x &lt; x ) { x -= 4 } //left
+if ( target_y &gt; y ) { y += 4 } //down
+if ( target_y &lt; y ) { y -= 4 } //up
 
-x += speed*cos(direction);
-y += speed*sin(direction);
-
-if !place_snapped(32, 32)
-{
-   move_snap(32, 32);
+//Check for destination
+if ( target_x == x &amp;&amp; target_y == y ) {
+    moving = false;
+    image_speed = 0;
 }
 
+if (willMove){
+
+    if (direction = 0) {
+        moving = true;
+        target_x += 32;
+    } else if (direction = 1) {
+        moving = true;
+        target_y += 32;
+    } else if (direction = 2) {
+        moving = true;
+        target_x -= 32;
+    } else if (direction = 3) {
+        moving = true;
+        target_y -= 32;
+    }
+}
 
 </string>
           </argument>
