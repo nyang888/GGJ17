@@ -141,6 +141,9 @@ if (willMove){
         sprite_index = S_Person_Up
         target_y -= 32;
     }
+} else {
+    sprite_index = S_Person
+    image_speed = 0;
 }
 
 </string>
