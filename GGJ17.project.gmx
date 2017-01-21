@@ -7,13 +7,20 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\S_PinkBlock</sprite>
+    <sprite>sprites\S_GreyBlock</sprite>
+    <sprite>sprites\S_BlackBlock</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\O_QueenBase</object>
+    <object>objects\O_PersonBase</object>
+    <object>objects\O_WallBase</object>
+    <object>objects\O_SpawnerPerson</object>
   </objects>
-  <rooms name="rooms"/>
+  <rooms name="rooms">
+    <room>rooms\room1</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
