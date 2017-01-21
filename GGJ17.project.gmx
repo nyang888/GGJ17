@@ -10,6 +10,10 @@
     <sprite>sprites\S_GreyBlock</sprite>
     <sprite>sprites\S_BlackBlock</sprite>
     <sprite>sprites\S_LightPinkBlock</sprite>
+    <sprite>sprites\S_Queen_Down</sprite>
+    <sprite>sprites\S_Queen_Right</sprite>
+    <sprite>sprites\S_Queen_Up</sprite>
+    <sprite>sprites\S_Queen_Left</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\Grass</background>
