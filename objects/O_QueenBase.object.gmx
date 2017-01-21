@@ -130,7 +130,10 @@ if(keyboard_check(vk_space) and overheat &lt; overheat_max and overheated_flag =
         overheated_flag = true;
     }
     isAttracting = false;
-    overheat -= overheat_decrement;
+    
+    if (overheat &gt; 0) {
+        overheat -= overheat_decrement;
+    } 
 }
 
 
@@ -142,6 +145,34 @@ if(keyboard_check(vk_space) and overheat &lt; overheat_max and overheated_flag =
       </action>
     </event>
     <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>703</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_score</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>20</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>50</string>
+          </argument>
+          <argument>
+            <kind>1</kind>
+            <string>Followers:</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -165,9 +196,9 @@ draw_self();
 var BLX=view_xview+20;
 var BLY=view_yview+20;
 
-var length_max=100;
+var length_max=440;
 var width=10;
-var length=(O_QueenBase.overheat-1)/(O_QueenBase.overheat_max-1)*length_max;
+var length=(O_QueenBase.overheat)/(O_QueenBase.overheat_max)*length_max;
 
 
 draw_set_color(c_black)
@@ -177,34 +208,6 @@ draw_rectangle(BLX-2,BLY-2,BLX+length_max+2,BLY+width+2,false);
 draw_set_color(make_colour_hsv(110-(O_QueenBase.overheat*10),255,255))
 draw_rectangle(BLX,BLY,BLX+length,BLY+width,false);
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>703</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_score</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
-          </argument>
-          <argument>
-            <kind>1</kind>
-            <string>Score: </string>
           </argument>
         </arguments>
       </action>
