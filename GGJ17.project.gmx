@@ -32,7 +32,8 @@
     <object>objects\O_HandBase</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room1</room>
+    <room>rooms\broke</room>
+    <room>rooms\girl</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

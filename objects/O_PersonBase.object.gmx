@@ -92,7 +92,7 @@ alarm[0]=20 + 20*irandom(5);
     instance_destroy();
 } 
 
-if (collision_circle(x, y, 100, O_QueenBase, false, true) and O_QueenBase.isAttracting and influenceTimer &lt; 5) 
+if (collision_circle(x, y, O_QueenBase.range, O_QueenBase, false, true) and O_QueenBase.isAttracting and influenceTimer &lt; 5) 
 {
    influenceTimer += 1;
    sprite_index = S_Person

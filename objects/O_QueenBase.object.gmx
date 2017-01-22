@@ -25,28 +25,70 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// CODE RUN AT CREATION
+            <string>///CONSTANTS
+
+CURRENT_PROFILE_LVL = 0;
+
+BROKE_RANGE = 50;
+BROKE_OVERHEAT_MAX = 10;
+BROKE_OVERHEAT_INCREMENT = 0.15;
+BROKE_OVERHEAT_DECREMENT = 0.15;
+BROKE_SCORE_MAX = 5;
+
+GIRL_RANGE = 100;
+GIRL_OVERHEAT_MAX = 20;
+GIRL_OVERHEAT_INCREMENT = 0.15;
+GIRL_OVERHEAT_DECREMENT = 0.3;
+GIRL_SCORE_MAX = 15
+
+PRINCESS_RANGE = 200;
+PRINCESS_OVERHEAT_MAX = 30;
+PRINCESS_OVERHEAT_INCREMENT = 0.15;
+PRINCESS_OVERHEAT_DECREMENT = 0.5;
+PRINCESS_SCORE_MAX = 45
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize the player
+
+//General 
+image_speed=.25;
+range = BROKE_RANGE 
+
+//Waving
+overheat = 0;
+overheat_min = 0;
+overheat_max = BROKE_OVERHEAT_MAX ;
+overheat_increment = BROKE_OVERHEAT_INCREMENT;
+overheat_decrement = BROKE_OVERHEAT_DECREMENT;
+overheated_flag = false;
 isAttracting = false;
 
-//Variable for overheating
-overheat = 1;
-overheat_min = 0;
-overheat_max = 10;
-overheat_increment = .5;
-overheat_decrement = .15;
-overheated_flag = false;
-
-image_speed=.25;
-xSpeed=0;
-ySpeed=0;
-ms=3;
-
-///Initialize the player
+//Movement
 target_x = x;
 target_y = y;
 moving = false;
 
-image_speed = 0;
+
+
 </string>
           </argument>
         </arguments>
@@ -138,6 +180,53 @@ if(keyboard_check(vk_space) and overheat &lt; overheat_max and overheated_flag =
 
 
 
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///PROFILE
+
+if(score &lt; BROKE_SCORE_MAX){
+    range = BROKE_RANGE;
+    overheat_max = BROKE_OVERHEAT_MAX ;
+    overheat_increment = BROKE_OVERHEAT_INCREMENT;
+    overheat_decrement = BROKE_OVERHEAT_DECREMENT;
+}
+
+if(score &gt;= BROKE_SCORE_MAX and score &lt; GIRL_SCORE_MAX and CURRENT_PROFILE_LVL &lt; 1){
+    CURRENT_PROFILE_LVL = 1;
+    range = GIRL_RANGE;
+    overheat_max = GIRL_OVERHEAT_MAX ;
+    overheat_increment = GIRL_OVERHEAT_INCREMENT;
+    overheat_decrement = GIRL_OVERHEAT_DECREMENT;
+    room_goto(girl);
+}
+
+if(score &gt;= GIRL_SCORE_MAX and score &lt; PRINCESS_SCORE_MAX and CURRENT_PROFILE_LVL &lt; 2){
+    CURRENT_PROFILE_LVL = 3;
+    range = PRINCESS_RANGE;
+    overheat_max = PRINCESS_OVERHEAT_MAX ;
+    overheat_increment = PRINCESS_OVERHEAT_INCREMENT;
+    overheat_decrement = PRINCESS_OVERHEAT_DECREMENT;
+}
 
 </string>
           </argument>
