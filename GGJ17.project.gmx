@@ -19,6 +19,8 @@
     <sprite>sprites\S_Person_Down</sprite>
     <sprite>sprites\S_Person_Left</sprite>
     <sprite>sprites\S_Person_Right</sprite>
+    <sprite>sprites\S_Wave</sprite>
+    <sprite>sprites\S_Cloud_Pop</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\Grass</background>
